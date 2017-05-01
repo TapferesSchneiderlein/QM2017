@@ -51,7 +51,7 @@ public abstract class AbstractExercise {
 		return this.informationId;
 	}
 
-	public int getId() {
+	public int getExerciseId() {
 		return exerciseId;
 	}
 

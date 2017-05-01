@@ -24,7 +24,7 @@ public class Information {
 		this.text = text;
 	}
 
-	public int getID() {
+	public int getInformationId() {
 		return this.informationId;
 	}
 

@@ -141,7 +141,7 @@ public class SentencePartDataManager extends DataManager {
 		stmt.setLong(4, sentences.get(0).getNumberOfSentenceParts());
 		stmt.setLong(5, sentences.size());
 		stmt.setInt(6, exercise.getInformationId());
-		stmt.setInt(7, exercise.getId());
+		stmt.setInt(7, exercise.getExerciseId());
 
 		int status = stmt.executeUpdate();
 		stmt.close();

@@ -21,8 +21,6 @@ import de.uhd.ifi.se.quizapp.model.*;
 @WebServlet("/Administrator")
 public class AdministratorServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	/** Data Manager */
-	DataManager dataManager;
 
 	/** Two choice exercise handler */
 	TwoChoiceExerciseHandler exerciseHandler;
@@ -50,7 +48,7 @@ public class AdministratorServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 
 		// Connect to database
-		dataManager = new DataManager();
+		DataManager dataManager = new DataManager();
 
 		request.setCharacterEncoding("UTF-8");
 		RequestDispatcher dispatcher = null;
@@ -61,7 +59,7 @@ public class AdministratorServlet extends HttpServlet {
 		}
 
 		else if (request.getParameter("createInformation") != null) {
-			request = this.handleCreateInformationRequest(request);
+			request = this.handleCreateInformationRequest(request, dataManager);
 			dispatcher = request.getRequestDispatcher("/admin/index.jsp?p=createInformation");
 		}
 
@@ -71,7 +69,7 @@ public class AdministratorServlet extends HttpServlet {
 		}
 
 		else if (request.getParameter("deleteInformation") != null) {
-			request = this.handleDeleteInformationRequest(request);
+			request = this.handleDeleteInformationRequest(request, dataManager);
 			dispatcher = request.getRequestDispatcher("/admin/index.jsp?p=createInformation");
 		}
 
@@ -86,12 +84,12 @@ public class AdministratorServlet extends HttpServlet {
 		}
 
 		else if (request.getParameter("editInformation") != null) {
-			request = this.handleEditInformationRequest(request);
+			request = this.handleEditInformationRequest(request, dataManager);
 			dispatcher = request.getRequestDispatcher("/admin/index.jsp?p=updateInformation");
 		}
 
 		else if (request.getParameter("updateInformation") != null) {
-			request = this.handleUpdateInformationRequest(request);
+			request = this.handleUpdateInformationRequest(request, dataManager);
 			dispatcher = request.getRequestDispatcher("/admin/index.jsp?p=createInformation");
 		}
 
@@ -122,7 +120,7 @@ public class AdministratorServlet extends HttpServlet {
 		doPost(request, response);
 	}
 
-	public HttpServletRequest handleCreateInformationRequest(HttpServletRequest request) {
+	public HttpServletRequest handleCreateInformationRequest(HttpServletRequest request, DataManager dataManager) {
 		String text = request.getParameter("text");
 		String name = request.getParameter("name");
 
@@ -141,7 +139,7 @@ public class AdministratorServlet extends HttpServlet {
 		return request;
 	}
 
-	public HttpServletRequest handleDeleteInformationRequest(HttpServletRequest request) {
+	public HttpServletRequest handleDeleteInformationRequest(HttpServletRequest request, DataManager dataManager) {
 		int informationId = 0;
 		if (request.getParameter("id") != null)
 			informationId = Integer.parseInt(request.getParameter("id"));
@@ -158,7 +156,7 @@ public class AdministratorServlet extends HttpServlet {
 		return request;
 	}
 
-	public HttpServletRequest handleEditInformationRequest(HttpServletRequest request) {
+	public HttpServletRequest handleEditInformationRequest(HttpServletRequest request, DataManager dataManager) {
 		int informationId = Integer.parseInt(request.getParameter("id"));
 		Information info = new Information();
 		try {
@@ -171,7 +169,7 @@ public class AdministratorServlet extends HttpServlet {
 		return request;
 	}
 
-	public HttpServletRequest handleUpdateInformationRequest(HttpServletRequest request) {
+	public HttpServletRequest handleUpdateInformationRequest(HttpServletRequest request, DataManager dataManager) {
 		String text = request.getParameter("text");
 		String name = request.getParameter("name");
 		int informationId = Integer.parseInt(request.getParameter("id"));

@@ -155,7 +155,7 @@ public class DataManager {
 	 * Update existing information in database.
 	 */
 	public boolean updateInformation(Information information) throws SQLException, ClassNotFoundException {
-		int informationId = information.getID();
+		int informationId = information.getInformationId();
 		String name = StringEscapeUtils.escapeHtml(information.getName());
 		String text = StringEscapeUtils.escapeHtml(information.getText());
 
@@ -199,7 +199,7 @@ public class DataManager {
 	 * Deletes an information in database.
 	 */
 	public boolean deleteInformation(Information information) throws SQLException, ClassNotFoundException {
-		return this.deleteInformation(information.getID());
+		return this.deleteInformation(information.getInformationId());
 	}
 
 	/*

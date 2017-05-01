@@ -146,7 +146,7 @@ public class TwoChoiceDataManager extends DataManager {
 		stmt.setLong(4, 0);
 		stmt.setLong(5, 0);
 		stmt.setInt(6, exercise.getInformationId());
-		stmt.setInt(7, exercise.getId());
+		stmt.setInt(7, exercise.getExerciseId());
 
 		int status = stmt.executeUpdate();
 		stmt.close();
