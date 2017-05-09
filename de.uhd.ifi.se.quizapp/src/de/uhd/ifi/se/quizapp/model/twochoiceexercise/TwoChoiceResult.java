@@ -24,5 +24,31 @@ public class TwoChoiceResult extends AbstractResult {
 	public String toString() {
 		return this.booleanStatements.toString();
 	}
-
+	
+	/**
+	* The method calculates and returns the percentage of correct
+	* answers for a TwoChoiceExercise.
+	*
+	* Input of the method:
+	*	1. 	TwoChoiceExercise containing statements which can be
+	*		true or false. (accessed through getExercise())
+	*	2. 	TwoChoiceResult containing the solution for the
+	*		exercise statements. (accessed through this)
+	*
+	* Output of the method:
+	*	The percentage of correct answers as decimal.
+	*	The percentage cannot be less than zero or greater than
+	*	one (0 <= percentage <= 1).
+	*	Returns zero if an exercise contains no statements.
+	*	Returns -1 on invalid inputs.
+	*/
+	public float getPercentage() {
+		float output = 0;
+	
+		if ( this.booleanStatements == null ) {
+			output = -1;
+		}
+		
+		return output;
+	}
 }
