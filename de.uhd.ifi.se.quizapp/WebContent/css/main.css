@@ -1,0 +1,136 @@
+@CHARSET "ISO-8859-1";
+
+* {
+	box-sizing:border-box;	
+}
+body,html {
+	height:100%;
+	font-family: sans-serif;
+	margin:0;
+	color: #232323;
+	background:whitesmoke;
+}
+
+nav {
+	background: #28A828;
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	z-index:1;
+}
+
+nav ul {
+	margin:0;	
+}
+
+nav ul li {
+	list-style-type:none;
+	display:inline-block;
+}
+
+nav ul li a {
+	display:blocK;
+	text-decoration:none;
+	color:#232323;
+	padding:25px;
+	transition: all 0.2s;
+}
+
+nav ul li a:hover {
+	color:white;
+	background:#454545;
+}
+#wrapper {
+	max-width:980px;
+	min-height:100%;
+	padding: 100px 50px;
+	margin:0 auto;
+	position:relative;
+	border:1px dotted;
+	background:#EEEEEE;
+	
+}
+
+.group,.group2 {
+	border:1px dashed;
+	padding:10px;
+	display:inline-block;
+}
+
+.highlighted {
+	background:yellow;
+}
+
+.correct {
+	width:32px;
+	height:32px;
+}
+
+input, select,textarea,button {
+	padding:10px;
+	margin:10px;
+	text-align:center;
+}
+#aufgabenform {
+	position:relative;
+	background:white;
+	border:1px solid black;
+	padding:25px;
+}
+
+h1 {
+	text-transform: uppercase;
+}
+
+#aufgabentable {
+	margin: 0 auto;
+	padding-bottom:50px;
+	width:100%;
+}
+#aufgabentable td,#aufgabentable tr {
+	display:block;
+	border:none;
+	margin-bottom:25px;
+	padding:25px 0px;
+	box-shadow: 5px 5px 5px #888888;
+}
+#aufgabentable td:before {
+      content: attr(data-th)": ";
+      font-weight: bold;
+      text-transform:uppercase;
+}
+#aufgabentable td:last-child:before {
+      content: "";
+}
+iframe {
+	max-width:100%;
+	height: auto;
+}
+
+#textbox, #task,#description,#aufgabentable td  {
+	box-shadow: 5px 5px 5px #888888;
+	border:1px solid black;
+	margin:10px;
+	padding:10px;
+}
+
+#filterform {
+	text-align:center;
+}
+#filterform input, #filterform select, #filterform label {
+	display:block;
+	margin:10px auto;;
+}
+
+.part {
+	padding: 10px;
+	border: 1px solid;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.part:hover {
+	background:#151515;
+	color:white;
+}
