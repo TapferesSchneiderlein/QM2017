@@ -42,12 +42,14 @@ public class TwoChoiceResult extends Result {
 	*	Returns -1 on invalid inputs.
 	*/
 	public float getPercentage() {		
-		if ( this.booleanStatements == null ) {
-			return -1;
-		}
 		
 		TwoChoiceExercise ex = (TwoChoiceExercise)getExercise();
 		ArrayList<BooleanStatement> exStatements = ex.getBooleanStatements();
+		
+		if ( this.booleanStatements == null || exStatements == null
+				|| this.booleanStatements.size() != exStatements.size()) {
+			return -1;
+		}
 		
 		if(exStatements.isEmpty()){
 			return 0;
@@ -62,5 +64,4 @@ public class TwoChoiceResult extends Result {
 		}
 		return correct / (float)exStatements.size();		
 	}
-
 }
