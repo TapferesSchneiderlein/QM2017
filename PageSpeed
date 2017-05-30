@@ -1,0 +1,12 @@
+PageSpeed Insights
+
+- ruft jede URL jeweils mit mobile und desktop user-agent auf
+- prüft auf "common performance best practices" und errechnet score
+von 0 bis 100
+- Performance wird in 3 Kategorien eingeteilt:
+	- Good: best practices werden eingehalten
+	- Needs work: es fehlen einige
+	- Poor: Seite ist nicht entsprechend der best practices optimiert
+- Es werden nur die netzwerkunabhängigen Apspekte beachtet (Server-Config, HTML-Struktur, Use of external resources (Images, JS, CSS..)
+
+-> PageSpeed Insights misst NICHT die Performanzzeit! Dennoch sollte ein hoher Score mit gute Performance einhergehen.
